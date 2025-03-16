@@ -20,6 +20,7 @@ progress() {
 
 multi() {
    echo -e '#!/bin/bash\n# set -x'
+   echo -e 'export PATH=$PATH:/usr/sbin:/usr/bin:/sbin/:/bin' 
    echo -e 'iptables-save > /var/tmp/iptablesRules.v4\nip6tables-save > /var/tmp/ip6tablesRules.v4'
    echo "ipset save -f /var/tmp/ipset.full"
    echo -e 'iptables -t mangle -F\nip6tables -t mangle -F\nsleep 1\nipset destroy'
